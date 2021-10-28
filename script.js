@@ -6,11 +6,11 @@ let score = 0;
 //1- vermelho
 //2- amarelo
 //3- azul
-
+const blue = document.querySelector('.blue');
 const green = document.querySelector('.green');
 const red = document.querySelector('.red');
 const yellow = document.querySelector('.yellow');
-const blue = document.querySelector('.blue');
+
 
 
 let shuffleOrder = () => {
@@ -26,10 +26,10 @@ let shuffleOrder = () => {
 
 //acende a proxima cor
 let lightColor = (element, number) => {
-    time = time * 500;
+    number = number * 500;
     setTimeout(() => {
 element.classList.add('selected');
-    }, tempo -250);
+    }, number - 250);
     setTimeout(() => {
         element.classList.remove('selected');
     });
@@ -47,7 +47,7 @@ let checkOrder = () => {
 
     if(clickedOrder.length == order.length){
         alert(`Pontuação: ${score}\n Você acertou! Iniciando próximo nível!`);
-        nextlevel();
+        nextLevel();
     } 
 }
 
@@ -81,7 +81,7 @@ let createColorElement = (color) => {
 }
 
 //funcao para proximo nivel do jogo
-let nextlevel = () => {
+let nextLevel = () => {
     score++;
     shuffleOrder();
 }
@@ -103,7 +103,7 @@ let playGame = () =>{
     alert('Bem vindo ao Gênesis. Iniciando novo jogo!');
     score = 0;
 
-    nextlevel();
+    nextLevel();
 }
  
 
